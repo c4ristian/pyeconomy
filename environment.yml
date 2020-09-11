@@ -1,0 +1,18 @@
+# YAML for setting up a conda environment for
+# the pyeconomy simulator
+name: pyeconomy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - pandas
+  - numpy
+  - python>=3.8.2
+  - pytest
+  - pytest-cov
+  - pylint
+  - plotly
+  - jupyter
+  - jupytext
+  - quantecon
