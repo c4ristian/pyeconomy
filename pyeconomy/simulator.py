@@ -18,11 +18,11 @@ def simulate_n_rounds(number_of_rounds, population):
     result_frame["round"] = 0
     result_frame["final"] = False
 
-    for r in range(1, number_of_rounds + 1):
+    for current_round in range(1, number_of_rounds + 1):
         simulate_next_round(population)
         current_frame = pd.DataFrame([vars(c) for c in population])
-        current_frame["round"] = r
-        current_frame["final"] = r == number_of_rounds
+        current_frame["round"] = current_round
+        current_frame["final"] = current_round == number_of_rounds
         result_frame = result_frame.append(current_frame, ignore_index=True)
 
     return result_frame
@@ -51,14 +51,3 @@ def simulate_next_round(population):
 
         citizen.current_income = next_income
         citizen.current_savings = current_savings + interest + new_savings
-
-
-def execute_simulator(number_of_rounds=20, population_size=100):
-    """
-    This method runs the pyeconomy simulator and returns a pandas data frame
-    with the results.
-    :param number_of_rounds: The number of rounds to simulate.
-    :param population_size: The number of citizens of the virtual economy.
-    :return: A pandas data frame with the results.
-    """
-    return pd.DataFrame()
